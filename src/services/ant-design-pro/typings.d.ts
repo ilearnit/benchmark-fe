@@ -35,18 +35,41 @@ declare namespace API {
   };
 
   type RuleListItem = {
-    key?: number;
-    disabled?: boolean;
-    href?: string;
-    avatar?: string;
-    name?: string;
-    owner?: string;
-    desc?: string;
-    callNo?: number;
-    status?: number;
-    updatedAt?: string;
-    createdAt?: string;
-    progress?: number;
+    id?: number;
+    benchmarkType?: string;
+    hardwareVendor: string;
+    system?: string;
+    peakResult?: number;
+    baseResult?: number;
+    energyPeakResult?: number;
+    energyBaseResult?: number;
+    cores?: number;
+    chips?: number;
+    enabledThreadsPerCore?: number;
+    processor?: string;
+    processorMhz?: number;
+    cpusOrderable?: string;
+    parallelization?: boolean;
+    basePointerSize?: string;
+    peakPointerSize?: string;
+    firstLevelCache?: string;
+    secondLevelCache?: string;
+    thirdLevelCache?: string;
+    otherCache?: string;
+    memory?: string;
+    storage?: string;
+    operatingSystem?: string;
+    fileSystem?: string;
+    compiler?: string;
+    license?: string;
+    testedBy?: string;
+    testSponsor?: string;
+    disclosure?: string;
+    hwAvail?: string;
+    swAvail?: string;
+    testDate?: string;
+    published?: string;
+    updated?: string;
   };
 
   type RuleList = {

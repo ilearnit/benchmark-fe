@@ -7,26 +7,27 @@ import { parse } from 'url';
 const genList = (current: number, pageSize: number) => {
   const tableListDataSource: API.RuleListItem[] = [];
 
-  for (let i = 0; i < pageSize; i += 1) {
-    const index = (current - 1) * 10 + i;
-    tableListDataSource.push({
-      key: index,
-      disabled: i % 6 === 0,
-      href: 'https://ant.design',
-      avatar: [
-        'https://gw.alipayobjects.com/zos/rmsportal/eeHMaZBwmTvLdIwMfBpg.png',
-        'https://gw.alipayobjects.com/zos/rmsportal/udxAbMEhpwthVVcjLXik.png',
-      ][i % 2],
-      name: `TradeCode ${index}`,
-      owner: '曲丽丽',
-      desc: '这是一段描述',
-      callNo: Math.floor(Math.random() * 1000),
-      status: Math.floor(Math.random() * 10) % 4,
-      updatedAt: moment().format('YYYY-MM-DD'),
-      createdAt: moment().format('YYYY-MM-DD'),
-      progress: Math.ceil(Math.random() * 100),
-    });
-  }
+  // TODO set List Data
+  // for (let i = 0; i < pageSize; i += 1) {
+  //   const index = (current - 1) * 10 + i;
+  //   tableListDataSource.push({
+  //     key: index,
+  //     disabled: i % 6 === 0,
+  //     href: 'https://ant.design',
+  //     avatar: [
+  //       'https://gw.alipayobjects.com/zos/rmsportal/eeHMaZBwmTvLdIwMfBpg.png',
+  //       'https://gw.alipayobjects.com/zos/rmsportal/udxAbMEhpwthVVcjLXik.png',
+  //     ][i % 2],
+  //     name: `TradeCode ${index}`,
+  //     owner: '曲丽丽',
+  //     desc: '这是一段描述',
+  //     callNo: Math.floor(Math.random() * 1000),
+  //     status: Math.floor(Math.random() * 10) % 4,
+  //     updatedAt: moment().format('YYYY-MM-DD'),
+  //     createdAt: moment().format('YYYY-MM-DD'),
+  //     progress: Math.ceil(Math.random() * 100),
+  //   });
+  // }
   tableListDataSource.reverse();
   return tableListDataSource;
 };
@@ -45,10 +46,15 @@ function getRule(req: Request, res: Response, u: string) {
       filter: any;
     };
 
+  console.log('111');
+  console.log(params);
+  console.log('222');
+
   let dataSource = [...tableListDataSource].slice(
     ((current as number) - 1) * (pageSize as number),
     (current as number) * (pageSize as number),
   );
+
   if (params.sorter) {
     const sorter = JSON.parse(params.sorter);
     dataSource = dataSource.sort((prev, next) => {
@@ -170,6 +176,6 @@ function postRule(req: Request, res: Response, u: string, b: Request) {
 }
 
 export default {
-  'GET /api/rule': getRule,
+  'GET /api/benchmark2017': getRule,
   'POST /api/rule': postRule,
 };

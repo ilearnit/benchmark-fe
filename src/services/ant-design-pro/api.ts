@@ -41,7 +41,7 @@ export async function getNotices(options?: { [key: string]: any }) {
 }
 
 /** 获取规则列表 GET /api/rule */
-export async function rule(
+export async function benchmark2017(
   params: {
     // query
     /** 当前的页码 */
@@ -51,13 +51,15 @@ export async function rule(
   },
   options?: { [key: string]: any },
 ) {
-  return request<API.RuleList>('/api/rule', {
+  let res = request<API.RuleList>('http://127.0.0.1:8001/api/benchmark2017/', {
     method: 'GET',
     params: {
       ...params,
     },
     ...(options || {}),
   });
+
+  return res;
 }
 
 /** 新建规则 PUT /api/rule */

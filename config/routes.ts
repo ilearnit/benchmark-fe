@@ -47,6 +47,17 @@
     icon: 'table',
     path: '/list',
     component: './TableList',
+    routes: [
+      {
+        path: '/list/benchmark2017',
+        name: '2017',
+        icon: 'smile',
+        component: './TableList',
+      },
+      {
+        component: './404',
+      },
+    ],
   },
   {
     path: '/',
