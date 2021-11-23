@@ -46,13 +46,31 @@
     name: 'list.table-list',
     icon: 'table',
     path: '/list',
-    component: './TableList',
+    // component: './TableList/benchmark2017',
     routes: [
       {
         path: '/list/benchmark2017',
-        name: '2017',
+        name: 'Benchmark 2017',
         icon: 'smile',
-        component: './TableList',
+        component: './TableList/benchmark2017',
+      },
+      {
+        path: '/list/benchmark2006',
+        name: 'Benchmark 2006',
+        icon: 'smile',
+        component: './TableList/benchmark2006',
+      },
+      {
+        path: '/list/jbb2015',
+        name: 'JBB 2015',
+        icon: 'smile',
+        component: './TableList/jbb2015',
+      },
+      {
+        path: '/list/ssj2008',
+        name: 'SSJ 2008',
+        icon: 'smile',
+        component: './TableList/ssj2008',
       },
       {
         component: './404',

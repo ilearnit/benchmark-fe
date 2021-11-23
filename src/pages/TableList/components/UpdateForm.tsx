@@ -68,7 +68,7 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
           name="name"
           label={intl.formatMessage({
             id: 'pages.searchTable.updateForm.ruleName.nameLabel',
-            defaultMessage: '规则名称',
+            defaultMessage: '基准类型',
           })}
           width="md"
           rules={[
