@@ -123,6 +123,7 @@ const TableList: React.FC = () => {
         />
       ),
       dataIndex: 'parallelization',
+      render: (val) => (val ? 'YES' : 'No'),
       ellipsis: true,
     },
     {
@@ -222,7 +223,7 @@ const TableList: React.FC = () => {
           defaultMessage="File System"
         />
       ),
-      dataIndex: 'FileSystem',
+      dataIndex: 'fileSystem',
       ellipsis: true,
     },
     {

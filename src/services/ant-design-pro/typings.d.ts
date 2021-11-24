@@ -40,13 +40,18 @@ declare namespace API {
     hardwareVendor: string;
     system?: string;
     peakResult?: number;
+    result?: number;
+    baseLine?: number;
     baseResult?: number;
     energyPeakResult?: number;
     energyBaseResult?: number;
     cores?: number;
     chips?: number;
+    coresPerChip?: number;
+    threadsPerCore?: number;
     enabledThreadsPerCore?: number;
     processor?: string;
+    processorCharacteristics?: string;
     processorMhz?: number;
     cpusOrderable?: string;
     parallelization?: boolean;
