@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FormattedMessage } from 'umi';
 import type { ProColumns } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
-import { benchmark2017 } from '@/services/ant-design-pro/api';
+import { jbb2015 } from '@/services/ant-design-pro/api';
 
 const TableList: React.FC = () => {
   const [] = useState<API.RuleListItem[]>([]);
@@ -16,271 +16,365 @@ const TableList: React.FC = () => {
         />
       ),
       dataIndex: 'benchmarkType',
+      ellipsis: true,
     },
     {
       title: (
         <FormattedMessage
-          id="pages.searchTable.updateForm.ruleName.hardwareVendor"
-          defaultMessage="Hardware vendor"
+          id="pages.searchTable.updateForm.ruleName.company"
+          defaultMessage="Company"
         />
       ),
-      dataIndex: 'hardwareVendor',
+      dataIndex: 'company',
+      ellipsis: true,
     },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.system"
-    //       defaultMessage="System"
-    //     />
-    //   ),
-    //   dataIndex: 'system',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.peakResult"
-    //       defaultMessage="Peak result"
-    //     />
-    //   ),
-    //   dataIndex: 'peakResult',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.baseResult"
-    //       defaultMessage="Base result"
-    //     />
-    //   ),
-    //   dataIndex: 'baseResult',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage id="pages.searchTable.updateForm.ruleName.cores" defaultMessage="Cores" />
-    //   ),
-    //   dataIndex: 'cores',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage id="pages.searchTable.updateForm.ruleName.chips" defaultMessage="Chips" />
-    //   ),
-    //   dataIndex: 'chips',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.enabledThreadsPerCore"
-    //       defaultMessage="Enabled Threads Per Core"
-    //     />
-    //   ),
-    //   dataIndex: 'enabledThreadsPerCore',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.processor"
-    //       defaultMessage="Processor"
-    //     />
-    //   ),
-    //   dataIndex: 'processor',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.processorMhz"
-    //       defaultMessage="Processor MHZ"
-    //     />
-    //   ),
-    //   dataIndex: 'processorMhz',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.cpusOrderable"
-    //       defaultMessage="CPUs orderable"
-    //     />
-    //   ),
-    //   dataIndex: 'cpusOrderable',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.parallelization"
-    //       defaultMessage="parallelization"
-    //     />
-    //   ),
-    //   dataIndex: 'parallelization',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.basePointerSize"
-    //       defaultMessage="Base Pointer Size"
-    //     />
-    //   ),
-    //   dataIndex: 'basePointerSize',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.peakPointerSize"
-    //       defaultMessage="Peak Pointer Size"
-    //     />
-    //   ),
-    //   dataIndex: 'peakPointerSize',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.firstLevelCache"
-    //       defaultMessage="First Level Cache"
-    //     />
-    //   ),
-    //   dataIndex: 'firstLevelCache',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.secondLevelCache"
-    //       defaultMessage="second Level Cache"
-    //     />
-    //   ),
-    //   dataIndex: 'secondLevelCache',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.thirdLevelCache"
-    //       defaultMessage="Third level cache"
-    //     />
-    //   ),
-    //   dataIndex: 'thirdLevelCache',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.otherCache"
-    //       defaultMessage="Other Cache"
-    //     />
-    //   ),
-    //   dataIndex: 'otherCache',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.memory"
-    //       defaultMessage="memory"
-    //     />
-    //   ),
-    //   dataIndex: 'memory',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.storage"
-    //       defaultMessage="storage"
-    //     />
-    //   ),
-    //   dataIndex: 'storage',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.operatingSystem"
-    //       defaultMessage="Operating system"
-    //     />
-    //   ),
-    //   dataIndex: 'operatingSystem',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.fileSystem"
-    //       defaultMessage="Operating system"
-    //     />
-    //   ),
-    //   dataIndex: 'File System',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.compiler"
-    //       defaultMessage="compiler"
-    //     />
-    //   ),
-    //   dataIndex: 'compiler',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.license"
-    //       defaultMessage="License"
-    //     />
-    //   ),
-    //   dataIndex: 'license',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.testedBy"
-    //       defaultMessage="Tested by"
-    //     />
-    //   ),
-    //   dataIndex: 'testedBy',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.testSponsor"
-    //       defaultMessage="Test Sponsor"
-    //     />
-    //   ),
-    //   dataIndex: 'testSponsor',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.hwAvail"
-    //       defaultMessage="hw Avail"
-    //     />
-    //   ),
-    //   dataIndex: 'hwAvail',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.swAvail"
-    //       defaultMessage="sw Avail"
-    //     />
-    //   ),
-    //   dataIndex: 'swAvail',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.testDate"
-    //       defaultMessage="Test date"
-    //     />
-    //   ),
-    //   dataIndex: 'testDate',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.published"
-    //       defaultMessage="published"
-    //     />
-    //   ),
-    //   dataIndex: 'published',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.updateForm.ruleName.updated"
-    //       defaultMessage="updated"
-    //     />
-    //   ),
-    //   dataIndex: 'updated',
-    // },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.system"
+          defaultMessage="System"
+        />
+      ),
+      dataIndex: 'system',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.maxJops"
+          defaultMessage="Max Jops"
+        />
+      ),
+      dataIndex: 'maxJops',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.criticalJops"
+          defaultMessage="Critical Jops"
+        />
+      ),
+      dataIndex: 'criticalJops',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage id="pages.searchTable.updateForm.ruleName.jvm" defaultMessage="JVM" />
+      ),
+      dataIndex: 'jvm',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.jvmVendor"
+          defaultMessage="JVM Vendor"
+        />
+      ),
+      dataIndex: 'jvmVendor',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage id="pages.searchTable.updateForm.ruleName.nodes" defaultMessage="Nodes" />
+      ),
+      dataIndex: 'nodes',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage id="pages.searchTable.updateForm.ruleName.cores" defaultMessage="Cores" />
+      ),
+      dataIndex: 'cores',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage id="pages.searchTable.updateForm.ruleName.chips" defaultMessage="Chips" />
+      ),
+      dataIndex: 'chips',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.coresPerChip"
+          defaultMessage="Cores Per Chip"
+        />
+      ),
+      dataIndex: 'coresPerChip',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.threadsPerCore"
+          defaultMessage="Threads Per Core"
+        />
+      ),
+      dataIndex: 'threadsPerCore',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.threadsTotal"
+          defaultMessage="Threads Total"
+        />
+      ),
+      dataIndex: 'threadsTotal',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.processor"
+          defaultMessage="Processor"
+        />
+      ),
+      dataIndex: 'processor',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.cpuSpeed"
+          defaultMessage="CPU Speed"
+        />
+      ),
+      dataIndex: 'cpuSpeed',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.cpuCharacteristics"
+          defaultMessage="CPU Characteristics"
+        />
+      ),
+      dataIndex: 'cpuCharacteristics',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.primaryCache"
+          defaultMessage="Primary Cache"
+        />
+      ),
+      dataIndex: 'primaryCache',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.secondaryCache"
+          defaultMessage="Secondary Cache"
+        />
+      ),
+      dataIndex: 'secondaryCache',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.tertiaryCache"
+          defaultMessage="Tertiary Cache"
+        />
+      ),
+      dataIndex: 'tertiaryCache',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.memory"
+          defaultMessage="Memory"
+        />
+      ),
+      dataIndex: 'memory',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.memoryDetails"
+          defaultMessage="Memory Details"
+        />
+      ),
+      dataIndex: 'memoryDetails',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage id="pages.searchTable.updateForm.ruleName.dimms" defaultMessage="DIMMS" />
+      ),
+      dataIndex: 'dimms',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage id="pages.searchTable.updateForm.ruleName.disk" defaultMessage="Disk" />
+      ),
+      dataIndex: 'disk',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.fileSystem"
+          defaultMessage="File System"
+        />
+      ),
+      dataIndex: 'fileSystem',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.operatingSystem"
+          defaultMessage="Operating System"
+        />
+      ),
+      dataIndex: 'operatingSystem',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.osVendor"
+          defaultMessage="OS Vendor"
+        />
+      ),
+      dataIndex: 'osVendor',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage id="pages.searchTable.updateForm.ruleName.nics" defaultMessage="NICS" />
+      ),
+      dataIndex: 'nics',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage id="pages.searchTable.updateForm.ruleName.psu" defaultMessage="PSU" />
+      ),
+      dataIndex: 'psu',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.formFactor"
+          defaultMessage="Form Factor"
+        />
+      ),
+      dataIndex: 'formFactor',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.enclosure"
+          defaultMessage="Enclosure"
+        />
+      ),
+      dataIndex: 'enclosure',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.hardwareAvailability"
+          defaultMessage="hardware Availability"
+        />
+      ),
+      dataIndex: 'hardwareAvailability',
+      valueType: 'dateMonth',
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.jvmAvailability"
+          defaultMessage="JVM Availability"
+        />
+      ),
+      dataIndex: 'jvmAvailability',
+      valueType: 'dateMonth',
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.swAvailability"
+          defaultMessage="sw Availability"
+        />
+      ),
+      dataIndex: 'swAvailability',
+      valueType: 'dateMonth',
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.license"
+          defaultMessage="License"
+        />
+      ),
+      dataIndex: 'license',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.testedBy"
+          defaultMessage="testedBy"
+        />
+      ),
+      dataIndex: 'testedBy',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.testSponsor"
+          defaultMessage="Test Sponsor"
+        />
+      ),
+      dataIndex: 'testSponsor',
+      ellipsis: true,
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.testDate"
+          defaultMessage="testDate"
+        />
+      ),
+      dataIndex: 'testDate',
+      valueType: 'dateMonth',
+    },
+
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.published"
+          defaultMessage="published"
+        />
+      ),
+      dataIndex: 'published',
+      valueType: 'dateMonth',
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.updateForm.ruleName.updated"
+          defaultMessage="updated"
+        />
+      ),
+      dataIndex: 'updated',
+      valueType: 'dateMonth',
+    },
   ];
 
   return (
@@ -289,8 +383,9 @@ const TableList: React.FC = () => {
       search={{
         labelWidth: 200,
       }}
-      request={benchmark2017}
+      request={jbb2015}
       columns={columns}
+      scroll={{ y: 300, x: 3000 }}
     />
   );
 };
