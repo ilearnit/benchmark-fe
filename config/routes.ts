@@ -67,6 +67,12 @@
         component: './TableList/jbb2015',
       },
       {
+        path: '/list/jvm2008',
+        name: 'JVM 2008',
+        icon: 'smile',
+        component: './TableList/jvm2008',
+      },
+      {
         path: '/list/ssj2008',
         name: 'SSJ 2008',
         icon: 'smile',
